@@ -1,0 +1,9 @@
+# Retrait des exceptions pour permettre l'ajout du settings.xml au TP
+
+# Autres dossiers standards à ignorer pour Java/Maven
+target/
+.idea/
+.vscode/
+*.class
+*.jar
+dockerhub

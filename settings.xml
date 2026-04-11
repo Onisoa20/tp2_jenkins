@@ -1,0 +1,61 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <servers>
+    <!-- Identifiants pour le déploiement sur Nexus Releases -->
+    <server>
+      <id>nexus-releases</id>
+      <username>${nexus.user}</username>
+      <password>${nexus.password}</password>
+    </server>
+
+    <!-- Identifiants pour le déploiement sur Nexus Snapshots -->
+    <server>
+      <id>nexus-snapshots</id>
+      <username>${nexus.user}</username>
+      <password>${nexus.password}</password>
+    </server>
+
+    <!-- Optionnel : Identifiants pour SonarQube si vous lancez l'analyse depuis votre PC local -->
+    <server>
+      <id>sonar</id>
+      <!-- On utilise uniquement le Token généré, le mot de passe reste vide -->
+      <username>sqa_5120cba9e53ab0d2c4fb6c823b61a04e16130ace</username>
+      <password></password>
+    </server>
+  </servers>
+
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://nexus:8081/repository/maven-public/</url>
+    </mirror>
+  </mirrors>
+
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <repositories>
+        <repository>
+          <id>nexus-releases</id>
+          <url>http://nexus:8081/repository/maven-releases/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>nexus-snapshots</id>
+          <url>http://nexus:8081/repository/maven-snapshots/</url>
+          <releases><enabled>false</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
+
+</settings>
