@@ -56,7 +56,7 @@ pipeline {
 
         stage('Docker Build & Push') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKERHUB_PWD', usernameVariable: 'DOCKERHUB_USER')]) {
+                withCredentials([usernamePassword(credentialsId: 'Tp2_jenkins', passwordVariable: 'DOCKERHUB_PWD', usernameVariable: 'DOCKERHUB_USER')]) {
                     sh "docker build -t onisoachristinah/tp-jenkins:latest ."
                     sh "echo \$DOCKERHUB_PWD | docker login -u \$DOCKERHUB_USER --password-stdin"
                     sh "docker push onisoachristinah/tp-jenkins:latest"
