@@ -8,14 +8,13 @@ pipeline {
 
 
     stages {
-        /*
         stage('Checkout') {
             steps {
                 // Contournement : Puisque vous n'utilisez pas "Pipeline script from SCM", on lui donne directement le lien
-                git branch: 'main', url: 'https://github.com/Onisoa20/tp_jenkins.git'
+                git branch: 'main', url: 'https://github.com/Onisoa20/tp2_jenkins.git'
             }
         }
-        */
+
 
         stage('Build & Unit Tests') {
             steps {
