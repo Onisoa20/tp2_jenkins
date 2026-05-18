@@ -17,6 +17,13 @@
       <password>${nexus.password}</password>
     </server>
 
+    <!-- Identifiants pour le téléchargement depuis le miroir Nexus -->
+    <server>
+      <id>nexus</id>
+      <username>${nexus.user}</username>
+      <password>${nexus.password}</password>
+    </server>
+
     <!-- Optionnel : Identifiants pour SonarQube si vous lancez l'analyse depuis votre PC local -->
     <server>
       <id>sonar</id>
