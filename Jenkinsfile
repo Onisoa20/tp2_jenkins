@@ -19,7 +19,7 @@ pipeline {
         stage('Build & Unit Tests') {
             steps {
                 // Compilation avec le settings.xml pour les accès et les identifiants Nexus
-                withCredentials([usernamePassword(credentialsId: 'nexus-credentials', passwordVariable: 'NEXUS_PWD', usernameVariable: 'NEXUS_USER')]) {
+                withCredentials([usernamePassword(credentialsId: 'dfe6cb70-5f72-4444-a83f-1f16a1ebb523', passwordVariable: 'NEXUS_PWD', usernameVariable: 'NEXUS_USER')]) {
                     sh "mvn clean install -s settings.xml -Dnexus.user=${NEXUS_USER} -Dnexus.password=${NEXUS_PWD}"
                 }
             }
